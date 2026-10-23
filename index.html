@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BaitGuard — Spot the bait. Stay safe online.</title>
+  <meta name="description" content="BaitGuard teaches you to recognise scams by letting you experience them safely: realistic emails, texts, calls and fake websites in a risk-free simulation.">
+  <meta name="theme-color" content="#102F32">
+  <meta property="og:title" content="BaitGuard — Experience the scam. Learn to spot it.">
+  <meta property="og:description" content="Interactive scam simulations that build the instinct to stay safe online.">
+  <meta property="og:image" content="assets/brand/baitguard-logo-full.png">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- Brand mark sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg-shield" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0" stop-color="#102F32"/><stop offset="0.55" stop-color="#075E56"/><stop offset="1" stop-color="#079B82"/>
+    </linearGradient>
+    <linearGradient id="bg-ribbon" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#079B82"/><stop offset="1" stop-color="#5EE6C0"/>
+    </linearGradient>
+    <symbol id="bg-mark" viewBox="0 0 64 72">
+      <path d="M32 3 57 11.5c2 .7 3 2.2 3 4.2V34c0 17.5-12 29.5-28 35C16 63.5 4 51.5 4 34V15.7c0-2 1-3.5 3-4.2Z" fill="url(#bg-shield)"/>
+      <path d="M21 31.5 32 24l11 7.5V45H21Z" fill="#fff" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M20 46 45 30.5l5 6.2L27.5 54Z" fill="url(#bg-ribbon)"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-8l-4 3v-3H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 4h3l1.5 4-2 1.3a10 10 0 0 0 5.7 5.7L16 13l4 1.5v3a1.5 1.5 0 0 1-1.6 1.5C10.6 18.4 5.6 13.4 5 5.6A1.5 1.5 0 0 1 6.5 4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 12h16M12 4c2.5 2.6 2.5 13.4 0 16M12 4c-2.5 2.6-2.5 13.4 0 16" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5 19.5c1.2-3.5 4-5 7-5s5.8 1.5 7 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="container nav">
+    <a class="brand" href="#top" aria-label="BaitGuard — back to top">
+      <svg class="brand-mark" aria-hidden="true"><use href="#bg-mark"/></svg>
+      <span class="brand-word">Bait<span>Guard</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How It Works</a>
+      <a href="#simulations">Simulations</a>
+      <a href="#teams">For Teams</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="nav-signin" type="button" data-signin>Sign In</button>
+      <a class="btn btn-dark" href="#demo">Try a Simulation <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-nav-toggle>
+      <span class="sr-only">Open menu</span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <a href="#how">How It Works</a>
+    <a href="#simulations">Simulations</a>
+    <a href="#teams">For Teams</a>
+    <a href="#about">About</a>
+    <button type="button" data-signin>Sign In</button>
+    <a class="btn btn-primary" href="#demo">Try a Simulation →</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <span class="pill hero-in" style="--i:0"><span class="pill-dot"></span>Interactive scam simulations</span>
+      <h1 class="hero-title">
+        <span class="line"><span style="--i:1">The safest way</span></span>
+        <span class="line"><span style="--i:2">to experience</span></span>
+        <span class="line"><span style="--i:3" class="accent">a scam.</span></span>
+      </h1>
+      <p class="hero-sub hero-in" style="--i:5">Practise spotting scams through realistic emails, text messages, suspicious calls and fake websites. Make decisions, learn the warning signs and build the confidence to stay safe online.</p>
+      <div class="hero-ctas hero-in" style="--i:6">
+        <a class="btn btn-primary btn-lg" href="#demo">Try a Free Simulation <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="text-link" href="#how">See How It Works <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-meta hero-in" style="--i:7">
+        <div class="channel-stack" aria-hidden="true">
+          <span><svg><use href="#i-mail"/></svg></span>
+          <span><svg><use href="#i-chat"/></svg></span>
+          <span><svg><use href="#i-phone"/></svg></span>
+          <span><svg><use href="#i-globe"/></svg></span>
+        </div>
+        <p>Email, texts, calls and fake websites, in a risk-free sandbox</p>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-photo" data-hero-rotator aria-hidden="true">
+        <div class="hero-fallback">
+          <svg class="hero-fallback-mark"><use href="#bg-mark"/></svg>
+        </div>
+      </div>
+
+      <div class="float-card float-sms" aria-hidden="true">
+        <div class="fs-status"><span class="live-dot"></span>Simulation in progress</div>
+        <div class="fs-msg">
+          <div class="fs-head"><span class="fs-avatar">?</span><span class="fs-from">+44 7700 900412</span><span class="fs-time">now</span></div>
+          <p>Your parcel could not be delivered. Please confirm your address to arrange redelivery.</p>
+        </div>
+        <div class="fs-flags"><span class="flag-count">3</span> warning signs to find</div>
+      </div>
+
+      <div class="float-chip" aria-hidden="true"><svg><use href="#i-lock"/></svg> Nothing leaves the simulation</div>
+      <div class="rotator-dots" data-rotator-dots aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ============ INTERACTIVE DEMO ============ -->
+  <section class="section demo-section" id="demo">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">Live preview</span>
+        <h2>Experience the scam.<br>Learn to spot it.</h2>
+        <p>This text just arrived. Decide what you'd do, exactly as you would on your own phone. Everything here stays inside the simulation.</p>
+      </div>
+
+      <div class="sim-window" data-sim-window data-reveal>
+        <div class="sim-bar">
+          <div class="sim-bar-left">
+            <svg class="sim-bar-mark" aria-hidden="true"><use href="#bg-mark"/></svg>
+            <span class="sim-crumb">Simulations <span aria-hidden="true">/</span> <strong>Missed delivery</strong></span>
+          </div>
+          <div class="sim-bar-right">
+            <span class="sim-step" data-sim-step>Step 1 of 2 · Decide</span>
+            <span class="safe-pill"><svg aria-hidden="true"><use href="#i-lock"/></svg> Safe sandbox</span>
+          </div>
+        </div>
+
+        <div class="sim-body">
+          <!-- Phone -->
+          <div class="sim-stage">
+            <div class="phone" data-phone>
+              <div class="phone-screen">
+                <div class="phone-status"><span>9:41</span><span class="phone-notch"></span><span class="phone-icons">●●● ▮</span></div>
+
+                <!-- Screen: messages -->
+                <div class="screen is-active" data-screen="messages">
+                  <div class="msg-top">
+                    <span class="msg-back" aria-hidden="true">‹</span>
+                    <div class="msg-contact">
+                      <span class="msg-avatar" aria-hidden="true"><svg><use href="#i-user"/></svg></span>
+                      <span class="flag" data-flag="sender"><strong>+44 7700 900412</strong></span>
+                      <small>Text message · Today 09:38</small>
+                    </div>
+                  </div>
+                  <div class="msg-thread">
+                    <div class="bubble in">
+                      <span class="flag" data-flag="generic">ParcelNet: Dear customer,</span>
+                      your parcel could not be delivered. Please confirm your address to arrange redelivery
+                      <span class="flag" data-flag="urgency">within 24 hours or it will be returned to sender.</span>
+                      <button type="button" class="bubble-link flag" data-flag="link" data-choice-trigger="follow">parceInet-redelivery.com<wbr>/r/88213</button>
+                    </div>
+                    <div class="bubble-meta">Delivered</div>
+                  </div>
+                  <div class="msg-input" aria-hidden="true"><span>Text message</span><span class="msg-send">↑</span></div>
+                </div>
+
+                <!-- Screen: fake site -->
+                <div class="screen" data-screen="site">
+                  <div class="browser-bar"><span class="url-warn">!</span><span class="url">parceInet-redelivery.com</span></div>
+                  <div class="fake-site">
+                    <div class="fake-brand"><span class="fake-logo">PN</span> ParcelNet</div>
+                    <h4>Reschedule your delivery</h4>
+                    <p>A redelivery fee of <strong>£1.45</strong> is required to release your parcel.</p>
+                    <label>Full name<input type="text" value="" placeholder="Jane Smith" disabled></label>
+                    <label>Card number<input type="text" placeholder="•••• •••• •••• ••••" disabled></label>
+                    <div class="fake-row"><label>Expiry<input type="text" placeholder="MM/YY" disabled></label><label>CVV<input type="text" placeholder="•••" disabled></label></div>
+                    <span class="fake-btn">Pay £1.45 &amp; reschedule</span>
+                    <div class="sim-ribbon">Simulated page · inputs disabled</div>
+                  </div>
+                </div>
+
+                <!-- Screen: investigate -->
+                <div class="screen" data-screen="info">
+                  <div class="msg-top"><span class="msg-back" aria-hidden="true">‹</span><div class="msg-contact"><strong>Sender details</strong></div></div>
+                  <div class="info-list">
+                    <div class="info-row"><span class="info-k">Number</span><span class="info-v">+44 7700 900412</span><span class="tag tag-warn">Not a business sender</span></div>
+                    <div class="info-row"><span class="info-k">In contacts</span><span class="info-v">No</span></div>
+                    <div class="info-row"><span class="info-k">Link domain</span><span class="info-v mono">parce<mark>I</mark>net-redelivery.com</span><span class="tag tag-warn">Capital “I”, not “l”</span></div>
+                    <div class="info-row"><span class="info-k">Courier's real site</span><span class="info-v mono">parcelnet.example</span><span class="tag tag-ok">Type it yourself</span></div>
+                  </div>
+                  <div class="info-actions">
+                    <span class="info-btn danger">Report junk</span><span class="info-btn">Block number</span>
+                  </div>
+                </div>
+
+                <!-- Screen: reported -->
+                <div class="screen" data-screen="report">
+                  <div class="msg-top"><span class="msg-back" aria-hidden="true">‹</span><div class="msg-contact"><strong>Messages</strong></div></div>
+                  <div class="report-done">
+                    <span class="report-check" aria-hidden="true">✓</span>
+                    <h4>Reported as junk</h4>
+                    <p>The message was deleted and the sender blocked. The scammer learns nothing, not even that your number is active.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decision panel -->
+          <div class="sim-panel" aria-live="polite">
+            <div class="decide" data-decide>
+              <p class="panel-kicker">Your move</p>
+              <h3>What would you do?</h3>
+              <div class="choices" role="group" aria-label="Choose an action">
+                <button class="choice" type="button" data-choice="follow">
+                  <span class="choice-key">A</span>
+                  <span class="choice-text"><strong>Follow the link</strong><small>Sort out the delivery quickly</small></span>
+                </button>
+                <button class="choice" type="button" data-choice="investigate">
+                  <span class="choice-key">B</span>
+                  <span class="choice-text"><strong>Investigate the sender</strong><small>Look closer before doing anything</small></span>
+                </button>
+                <button class="choice" type="button" data-choice="report">
+                  <span class="choice-key">C</span>
+                  <span class="choice-text"><strong>Ignore and report it</strong><small>Mark as junk and delete</small></span>
+                </button>
+              </div>
+              <p class="panel-hint">Tip: you can also tap the link on the phone. It's safe here.</p>
+            </div>
+
+            <div class="feedback" data-feedback hidden>
+              <span class="outcome" data-outcome></span>
+              <h3 data-fb-title></h3>
+              <p data-fb-body></p>
+              <div class="fb-block">
+                <p class="fb-label">Warning signs in this message</p>
+                <ol class="flag-list" data-flag-list>
+                  <li><button type="button" data-flag-target="sender"><span class="n">1</span><span><strong>Unknown mobile number.</strong> Couriers send from a named business sender, not a personal number.</span></button></li>
+                  <li><button type="button" data-flag-target="generic"><span class="n">2</span><span><strong>“Dear customer”.</strong> No name, no order or tracking number.</span></button></li>
+                  <li><button type="button" data-flag-target="urgency"><span class="n">3</span><span><strong>Manufactured urgency.</strong> A 24-hour deadline to stop you thinking.</span></button></li>
+                  <li><button type="button" data-flag-target="link"><span class="n">4</span><span><strong>Look-alike link.</strong> “parce<b>I</b>net” uses a capital I in place of an l.</span></button></li>
+                </ol>
+              </div>
+              <div class="fb-do"><p class="fb-label">What to do instead</p><p data-fb-do></p></div>
+              <div class="fb-actions">
+                <button class="btn btn-ghost" type="button" data-reset>Try another choice</button>
+                <a class="text-link" href="#simulations">Explore all simulations <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIMULATIONS ============ -->
+  <section class="section" id="simulations">
+    <div class="container">
+      <div class="section-head split" data-reveal>
+        <div>
+          <span class="eyebrow">Simulations</span>
+          <h2>Five ways scammers reach you.<br>Practise every one.</h2>
+        </div>
+        <p>Each scenario is built from situations people really run into. Here's a preview; reveal the red flags to see what you'll learn to notice.</p>
+      </div>
+
+      <div class="sim-grid">
+        <!-- Email -->
+        <article class="sim-card span-2" data-reveal style="--d:0">
+          <div class="sim-preview pv-email" aria-hidden="true">
+            <div class="pv-mail-row"><span class="pv-av">CB</span><div><strong>Cloudbox Storage</strong><span>Your storage is almost full</span></div><time>08:12</time></div>
+            <div class="pv-mail-row is-bait"><span class="pv-av warn">!</span><div><strong>Accounts · Northbank</strong><span>Final notice: invoice INV-2291 overdue</span></div><time>09:30</time></div>
+            <div class="pv-mail-row"><span class="pv-av">LT</span><div><strong>Lena Torres</strong><span>Notes from Thursday</span></div><time>Yest.</time></div>
+            <div class="pv-mail-open">
+              <p class="pv-mail-from">From: accounts@northbank-billing<b>.co</b></p>
+              <p>Your account will be suspended unless payment is made today. Download the attached invoice.</p>
+              <span class="pv-attach">INV-2291.pdf.exe</span>
+            </div>
+          </div>
+          <div class="sim-card-body">
+            <span class="sim-tag"><svg><use href="#i-mail"/></svg> Email</span>
+            <h3>Email scams</h3>
+            <p>Phishing, fake invoices, account verification requests, impersonation and offers too good to be true.</p>
+            <button class="card-action" type="button" data-reveal-flags aria-expanded="false">Reveal the red flags <span aria-hidden="true">+</span></button>
+          </div>
+          <div class="red-flags" role="region" aria-label="Email red flags">
+            <ul><li>Sender domain isn't the company's real one</li><li>“Final notice” pressure with a same-day deadline</li><li>Attachment ends in <code>.exe</code>, not <code>.pdf</code></li></ul>
+          </div>
+        </article>
+
+        <!-- SMS -->
+        <article class="sim-card" data-reveal style="--d:1">
+          <div class="sim-preview pv-chat" aria-hidden="true">
+            <p class="pv-chat-name">Unknown number</p>
+            <div class="pv-b in">Hi Mum, I dropped my phone, this is my new number</div>
+            <div class="pv-b in">Can you help with a bill today? I'll pay you back tomorrow x</div>
+            <div class="pv-b out">Who is this?</div>
+          </div>
+          <div class="sim-card-body">
+            <span class="sim-tag"><svg><use href="#i-chat"/></svg> Texts &amp; messaging</span>
+            <h3>Text and messaging scams</h3>
+            <p>Delivery notices, “new number” family emergencies and urgent payment requests.</p>
+            <a class="card-action" href="#demo">Try the live demo <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <!-- Phone -->
+        <article class="sim-card" data-reveal style="--d:2">
+          <div class="sim-preview pv-call" aria-hidden="true">
+            <p class="pv-call-label">Incoming call</p>
+            <p class="pv-call-name">Northbank Fraud Team</p>
+            <p class="pv-call-num">0306 999 0174</p>
+            <div class="pv-call-btns"><span class="decline">✕</span><span class="accept"><svg><use href="#i-phone"/></svg></span></div>
+          </div>
+          <div class="sim-card-body">
+            <span class="sim-tag"><svg><use href="#i-phone"/></svg> Phone</span>
+            <h3>Phone call scams</h3>
+            <p>Talk through calls from fake bank staff, tech support and officials.</p>
+            <button class="card-action" type="button" data-reveal-flags aria-expanded="false">Reveal the red flags <span aria-hidden="true">+</span></button>
+          </div>
+          <div class="red-flags" role="region" aria-label="Phone call red flags">
+            <ul><li>Caller ID can be faked to show any name</li><li>Your bank never asks you to move money to a “safe account”</li><li>Hang up and call the number on your card</li></ul>
+          </div>
+        </article>
+
+        <!-- Fake site -->
+        <article class="sim-card" data-reveal style="--d:3">
+          <div class="sim-preview pv-site" aria-hidden="true">
+            <div class="pv-url"><span class="pv-url-dot"></span>northbank-secure-login.net</div>
+            <div class="pv-login">
+              <span class="pv-login-logo">N</span>
+              <span class="pv-field">Customer ID</span>
+              <span class="pv-field">Passcode</span>
+              <span class="pv-submit">Log in</span>
+            </div>
+          </div>
+          <div class="sim-card-body">
+            <span class="sim-tag"><svg><use href="#i-globe"/></svg> Websites</span>
+            <h3>Fake websites</h3>
+            <p>Look-alike logins, fraudulent shops and forms that harvest your details.</p>
+            <button class="card-action" type="button" data-reveal-flags aria-expanded="false">Reveal the red flags <span aria-hidden="true">+</span></button>
+          </div>
+          <div class="red-flags" role="region" aria-label="Fake website red flags">
+            <ul><li>Extra words like “secure-login” in the domain</li><li>You arrived from a link, not by typing the address</li><li>A padlock only means encrypted, not trustworthy</li></ul>
+          </div>
+        </article>
+
+        <!-- Social engineering -->
+        <article class="sim-card span-2 sim-card-row" data-reveal style="--d:4">
+          <div class="sim-preview pv-dm" aria-hidden="true">
+            <div class="pv-dm-head"><span class="pv-av alt">HR</span><div><strong>Maya · Talent Partner</strong><span>Recruiter · 3 mutual connections</span></div></div>
+            <div class="pv-b in">Hi! Your profile is a great fit for a remote role: £450/day, no experience needed.</div>
+            <div class="pv-b in">To secure your spot there's a one-off £80 training fee. Shall I send the link?</div>
+          </div>
+          <div class="sim-card-body">
+            <span class="sim-tag"><svg><use href="#i-user"/></svg> Social engineering</span>
+            <h3>Social engineering and impersonation</h3>
+            <p>Job offers, romance and investment schemes, and fake profiles that build trust before they ask for anything.</p>
+            <button class="card-action" type="button" data-reveal-flags aria-expanded="false">Reveal the red flags <span aria-hidden="true">+</span></button>
+          </div>
+          <div class="red-flags" role="region" aria-label="Social engineering red flags">
+            <ul><li>Pay far above market for no experience</li><li>A real employer never charges you to start</li><li>“Mutual connections” are easy to fake</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section how-section" id="how">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">How BaitGuard works</span>
+        <h2>Three steps. No lectures.</h2>
+      </div>
+
+      <div class="how" data-how>
+        <div class="how-visual" aria-hidden="true">
+          <div class="how-frame">
+            <!-- Pane 1 -->
+            <div class="how-pane is-active" data-pane="1">
+              <p class="hp-title">Choose a scenario</p>
+              <div class="hp-list">
+                <div class="hp-item is-selected"><span class="hp-ic"><svg><use href="#i-chat"/></svg></span><div><strong>Missed delivery</strong><span>Text message · 3 min</span></div><span class="hp-lvl">●○○</span></div>
+                <div class="hp-item"><span class="hp-ic"><svg><use href="#i-mail"/></svg></span><div><strong>Overdue invoice</strong><span>Email · 4 min</span></div><span class="hp-lvl">●●○</span></div>
+                <div class="hp-item"><span class="hp-ic"><svg><use href="#i-phone"/></svg></span><div><strong>“Your bank” calling</strong><span>Phone call · 5 min</span></div><span class="hp-lvl">●●●</span></div>
+                <div class="hp-item"><span class="hp-ic"><svg><use href="#i-user"/></svg></span><div><strong>Hi Mum, new number</strong><span>Messaging · 3 min</span></div><span class="hp-lvl">●●○</span></div>
+              </div>
+            </div>
+            <!-- Pane 2 -->
+            <div class="how-pane" data-pane="2">
+              <p class="hp-title">Hi Mum, new number</p>
+              <div class="hp-chat">
+                <div class="pv-b in">Hi Mum, my phone broke. This is my new number</div>
+                <div class="pv-b in">Can you transfer £640 for my rent today? Bank app's locked</div>
+              </div>
+              <p class="hp-q">How do you reply?</p>
+              <div class="hp-replies"><span>Who is this?</span><span class="is-picked">Call her old number</span><span>Send the money</span></div>
+            </div>
+            <!-- Pane 3 -->
+            <div class="how-pane" data-pane="3">
+              <div class="hp-report">
+                <div class="hp-ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" class="track"/><circle cx="18" cy="18" r="15.5" class="fill"/></svg><span>3/4</span></div>
+                <div><p class="hp-title">Scenario complete</p><span class="hp-sub">You spotted 3 of 4 warning signs</span></div>
+              </div>
+              <ul class="hp-checks">
+                <li class="ok">Verified through a known number</li>
+                <li class="ok">Didn't send money under pressure</li>
+                <li class="ok">Noticed the unfamiliar number</li>
+                <li class="miss">Missed: “bank app's locked” stops you checking</li>
+              </ul>
+              <span class="hp-next">Next up: urgency tactics →</span>
+            </div>
+          </div>
+        </div>
+
+        <ol class="how-steps">
+          <li class="how-step is-active" data-step="1">
+            <span class="how-num">01</span>
+            <h3>Choose a scenario</h3>
+            <p>Explore realistic scams based on situations people encounter online.</p>
+            <div class="how-mobile-visual" data-mobile-pane="1"></div>
+          </li>
+          <li class="how-step" data-step="2">
+            <span class="how-num">02</span>
+            <h3>Make your decisions</h3>
+            <p>Read, respond, investigate and interact as though the situation were real.</p>
+            <div class="how-mobile-visual" data-mobile-pane="2"></div>
+          </li>
+          <li class="how-step" data-step="3">
+            <span class="how-num">03</span>
+            <h3>Learn and improve</h3>
+            <p>Discover the warning signs, understand what happened and become better prepared.</p>
+            <div class="how-mobile-visual" data-mobile-pane="3"></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY ============ -->
+  <section class="section why-section" id="about">
+    <div class="container">
+      <div class="why">
+        <div class="why-lead" data-reveal>
+          <span class="eyebrow">Why BaitGuard</span>
+          <h2>Quizzes teach facts.<br><span class="muted">Scams target feelings.</span></h2>
+          <p>Most people already know “don't click suspicious links”. Scams work because, in the moment, the link doesn't feel suspicious. BaitGuard trains that moment: you feel the pressure, make the call, then see exactly how it was engineered.</p>
+        </div>
+        <ul class="why-list">
+          <li data-reveal style="--d:0"><span class="why-n">01</span><div><h3>Real experiences, not passive quizzes</h3><p>You act inside the scenario, and it reacts to what you do.</p></div></li>
+          <li data-reveal style="--d:1"><span class="why-n">02</span><div><h3>Practise with nothing at stake</h3><p>No real money, accounts or personal information are ever involved.</p></div></li>
+          <li data-reveal style="--d:2"><span class="why-n">03</span><div><h3>Understand the psychology</h3><p>Learn the levers scammers pull, so new tricks still look familiar.</p></div></li>
+          <li data-reveal style="--d:3"><span class="why-n">04</span><div><h3>Sharpen your instincts</h3><p>Get better at noticing when something is off, before you act.</p></div></li>
+          <li data-reveal style="--d:4"><span class="why-n">05</span><div><h3>Confidence through repetition</h3><p>Return to scenarios and see your judgement improve.</p></div></li>
+        </ul>
+      </div>
+
+      <div class="tactics">
+        <p class="tactics-label" data-reveal>The pressure points you'll learn to recognise</p>
+        <div class="tactic-row">
+          <div class="tactic" data-reveal style="--d:0"><span>Urgency</span><q>Act within 24 hours</q></div>
+          <div class="tactic" data-reveal style="--d:1"><span>Authority</span><q>This is your bank's fraud team</q></div>
+          <div class="tactic" data-reveal style="--d:2"><span>Fear</span><q>Your account has been compromised</q></div>
+          <div class="tactic" data-reveal style="--d:3"><span>Opportunity</span><q>You've been selected</q></div>
+          <div class="tactic" data-reveal style="--d:4"><span>Familiarity</span><q>Hi Mum, it's me</q></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIENCES ============ -->
+  <section class="section" id="teams">
+    <div class="container">
+      <div class="section-head split" data-reveal>
+        <div>
+          <span class="eyebrow">Designed for everyone</span>
+          <h2>Made for people first.<br>Ready for teams next.</h2>
+        </div>
+        <p>BaitGuard starts with people who want to protect themselves and those they care about. Tools for classrooms and organisations are on the roadmap.</p>
+      </div>
+      <div class="aud-grid">
+        <article class="aud-card aud-main" data-reveal style="--d:0">
+          <span class="aud-status">Available first</span>
+          <h3>Individuals and families</h3>
+          <p>Build your own instincts, or practise alongside parents and grandparents who are newer to digital scams. Plain language, at your own pace.</p>
+          <a class="text-link light" href="#demo">Start practising <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="aud-card" data-reveal style="--d:1">
+          <span class="aud-status muted">On the roadmap</span>
+          <h3>Schools and educators</h3>
+          <p>Age-appropriate scenarios that turn online safety lessons into something students actually do.</p>
+        </article>
+        <article class="aud-card" data-reveal style="--d:2">
+          <span class="aud-status muted">On the roadmap</span>
+          <h3>Businesses and teams</h3>
+          <p>Social engineering and fraud training that goes beyond phishing tests, with progress your team can see.</p>
+          <a class="text-link" href="#contact">Register interest <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta" data-final>
+    <div class="final-inner container">
+      <svg class="final-mark" aria-hidden="true"><use href="#bg-mark"/></svg>
+      <h2 data-reveal>Don't wait until it's real.</h2>
+      <p data-reveal style="--d:1">Learn to recognise scams before you encounter them.</p>
+      <div data-reveal style="--d:2"><a class="btn btn-mint btn-lg" href="#demo">Start Your First Simulation <span class="arrow" aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="#top"><svg class="brand-mark" aria-hidden="true"><use href="#bg-mark"/></svg><span class="brand-word">Bait<span>Guard</span></span></a>
+        <p>Spot the bait. Stay safe online.</p>
+      </div>
+      <div class="footer-cols">
+        <div><h4>Product</h4><a href="#how">How it works</a><a href="#simulations">Simulations</a><a href="#demo">Live demo</a><a href="#teams">For teams</a></div>
+        <div><h4>Learn</h4><a href="#about">Common warning signs</a><a href="#" data-soon>Guides for families</a><a href="#" data-soon>Scam glossary</a></div>
+        <div><h4>Company</h4><a href="#about">About</a><a href="#" data-soon>Contact</a><a href="#" data-soon>Press</a></div>
+        <div><h4>Legal</h4><a href="#" data-soon>Privacy</a><a href="#" data-soon>Terms</a><a href="#" data-soon>Cookies</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 BaitGuard. All scenarios are fictional; any resemblance to real organisations is unintended.</p>
+      <p>BaitGuard will never ask for your real passwords or card details.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+
+<script src="main.js" defer></script>
+</body>
+</html>
