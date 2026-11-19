@@ -37,6 +37,24 @@
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 4h3l1.5 4-2 1.3a10 10 0 0 0 5.7 5.7L16 13l4 1.5v3a1.5 1.5 0 0 1-1.6 1.5C10.6 18.4 5.6 13.4 5 5.6A1.5 1.5 0 0 1 6.5 4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
     <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 12h16M12 4c2.5 2.6 2.5 13.4 0 16M12 4c-2.5 2.6-2.5 13.4 0 16" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
     <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5 19.5c1.2-3.5 4-5 7-5s5.8 1.5 7 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="app-mail" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="11" fill="#fff"/>
+      <path d="M9 36h6V22.5L9 18v15.5a2.5 2.5 0 0 0 0 .2Z" fill="#4285F4"/>
+      <path d="M33 36h6V18l-6 4.5Z" fill="#34A853"/>
+      <path d="M33 14.5v8l6-4.5v-2.6c0-2.6-3-4-5-2.5Z" fill="#FBBC04"/>
+      <path d="M15 22.5v-8l9 6.8 9-6.8v8l-9 6.8Z" fill="#EA4335"/>
+      <path d="M9 15.4V18l6 4.5v-8l-1-.7c-2-1.5-5-.1-5 2.6Z" fill="#C5221F"/>
+    </symbol>
+    <symbol id="app-chat" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="11" fill="#25D366"/>
+      <path d="M24 10.5a13.5 13.5 0 0 0-11.7 20.2L10.5 37.5l7-1.8A13.5 13.5 0 1 0 24 10.5Z" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="M19.4 17.6h2.2l1.1 3-1.5 1a7.5 7.5 0 0 0 4.3 4.3l1-1.5 3 1.1v2.2a1.1 1.1 0 0 1-1.2 1.1c-5.7-.5-9.4-4.2-9.9-9.9a1.1 1.1 0 0 1 1-1.3Z" fill="#fff"/>
+    </symbol>
+    <symbol id="app-msg" viewBox="0 0 48 48">
+      <defs><linearGradient id="app-msg-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BF675"/><stop offset="1" stop-color="#0CBD2A"/></linearGradient></defs>
+      <rect width="48" height="48" rx="11" fill="url(#app-msg-g)"/>
+      <path d="M24 11.5c-8.3 0-15 5.4-15 12 0 3.8 2.2 7.2 5.7 9.4-.4 1.9-1.5 3.6-3.2 4.8 3 .2 5.8-.8 7.9-2.6 1.5.3 3 .5 4.6.5 8.3 0 15-5.4 15-12.1s-6.7-12-15-12Z" fill="#fff"/>
+    </symbol>
     <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
   </defs>
 </svg>
@@ -53,8 +71,13 @@
       <a href="#how">How It Works</a>
       <a href="#simulations">Simulations</a>
       <a href="#teams">For Teams</a>
-      <a href="#about">About</a>
     </nav>
+    <div class="nav-sims" aria-label="Try a simulation">
+      <span class="nav-sims-label">Simulate</span>
+      <a class="app-icon" href="simulator.html#mail" title="Email simulation (Gmail-style inbox)"><svg aria-hidden="true"><use href="#app-mail"/></svg><span class="sr-only">Email simulation</span></a>
+      <a class="app-icon" href="simulator.html#chat" title="WhatsApp-style chat simulation"><svg aria-hidden="true"><use href="#app-chat"/></svg><span class="sr-only">WhatsApp-style chat simulation</span></a>
+      <a class="app-icon" href="simulator.html#sms" title="iMessage-style text simulation"><svg aria-hidden="true"><use href="#app-msg"/></svg><span class="sr-only">iMessage-style text simulation</span></a>
+    </div>
     <div class="nav-actions">
       <button class="nav-signin" type="button" data-signin>Sign In</button>
       <a class="btn btn-dark" href="#demo">Try a Simulation <span class="arrow" aria-hidden="true">→</span></a>
@@ -67,7 +90,6 @@
     <a href="#how">How It Works</a>
     <a href="#simulations">Simulations</a>
     <a href="#teams">For Teams</a>
-    <a href="#about">About</a>
     <button type="button" data-signin>Sign In</button>
     <a class="btn btn-primary" href="#demo">Try a Simulation →</a>
   </div>

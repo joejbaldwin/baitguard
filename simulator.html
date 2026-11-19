@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>BaitGuard Simulator — Safe or bait?</title>
+  <meta name="description" content="Practise spotting scams in realistic email, chat and text-message simulations. Decide what is safe and what is bait.">
+  <meta name="theme-color" content="#102F32">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sim.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg-shield" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0" stop-color="#102F32"/><stop offset="0.55" stop-color="#075E56"/><stop offset="1" stop-color="#079B82"/>
+    </linearGradient>
+    <linearGradient id="bg-ribbon" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#079B82"/><stop offset="1" stop-color="#5EE6C0"/>
+    </linearGradient>
+    <symbol id="bg-mark" viewBox="0 0 64 72">
+      <path d="M32 3 57 11.5c2 .7 3 2.2 3 4.2V34c0 17.5-12 29.5-28 35C16 63.5 4 51.5 4 34V15.7c0-2 1-3.5 3-4.2Z" fill="url(#bg-shield)"/>
+      <path d="M21 31.5 32 24l11 7.5V45H21Z" fill="#fff" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M20 46 45 30.5l5 6.2L27.5 54Z" fill="url(#bg-ribbon)"/>
+    </symbol>
+    <symbol id="app-mail" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="11" fill="#fff"/>
+      <path d="M9 36h6V22.5L9 18v15.5a2.5 2.5 0 0 0 0 .2Z" fill="#4285F4"/>
+      <path d="M33 36h6V18l-6 4.5Z" fill="#34A853"/>
+      <path d="M33 14.5v8l6-4.5v-2.6c0-2.6-3-4-5-2.5Z" fill="#FBBC04"/>
+      <path d="M15 22.5v-8l9 6.8 9-6.8v8l-9 6.8Z" fill="#EA4335"/>
+      <path d="M9 15.4V18l6 4.5v-8l-1-.7c-2-1.5-5-.1-5 2.6Z" fill="#C5221F"/>
+    </symbol>
+    <symbol id="app-chat" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="11" fill="#25D366"/>
+      <path d="M24 10.5a13.5 13.5 0 0 0-11.7 20.2L10.5 37.5l7-1.8A13.5 13.5 0 1 0 24 10.5Z" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="M19.4 17.6h2.2l1.1 3-1.5 1a7.5 7.5 0 0 0 4.3 4.3l1-1.5 3 1.1v2.2a1.1 1.1 0 0 1-1.2 1.1c-5.7-.5-9.4-4.2-9.9-9.9a1.1 1.1 0 0 1 1-1.3Z" fill="#fff"/>
+    </symbol>
+    <symbol id="app-msg" viewBox="0 0 48 48">
+      <defs><linearGradient id="app-msg-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BF675"/><stop offset="1" stop-color="#0CBD2A"/></linearGradient></defs>
+      <rect width="48" height="48" rx="11" fill="url(#app-msg-g)"/>
+      <path d="M24 11.5c-8.3 0-15 5.4-15 12 0 3.8 2.2 7.2 5.7 9.4-.4 1.9-1.5 3.6-3.2 4.8 3 .2 5.8-.8 7.9-2.6 1.5.3 3 .5 4.6.5 8.3 0 15-5.4 15-12.1s-6.7-12-15-12Z" fill="#fff"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="simbar">
+  <a class="sim-brand" href="index.html" aria-label="BaitGuard home">
+    <svg class="sim-brand-mark" aria-hidden="true"><use href="#bg-mark"/></svg>
+    <span class="sim-brand-word">Bait<span>Guard</span></span>
+  </a>
+  <nav class="simtabs" aria-label="Choose a simulation">
+    <a href="#mail" data-tab="mail"><svg aria-hidden="true"><use href="#app-mail"/></svg><span class="tab-label">Gmail</span><span class="tab-prog" data-prog="mail"></span></a>
+    <a href="#chat" data-tab="chat"><svg aria-hidden="true"><use href="#app-chat"/></svg><span class="tab-label">WhatsApp</span><span class="tab-prog" data-prog="chat"></span></a>
+    <a href="#sms" data-tab="sms"><svg aria-hidden="true"><use href="#app-msg"/></svg><span class="tab-label">iMessage</span><span class="tab-prog" data-prog="sms"></span></a>
+  </nav>
+  <div class="sim-score">
+    <span data-score></span>
+    <button type="button" class="sim-reset" data-reset-all>Reset</button>
+  </div>
+</header>
+
+<main id="sim-root" class="stage"></main>
+
+<div class="urlpeek" data-urlpeek hidden></div>
+<div class="sim-toast" data-toast role="status" aria-live="polite"></div>
+
+<script src="sim.js"></script>
+</body>
+</html>
